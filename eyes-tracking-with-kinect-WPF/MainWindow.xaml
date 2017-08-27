@@ -1,0 +1,93 @@
+﻿<Window x:Class="KinectHDFEyeTracking.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KinectHDFEyeTracking"
+        mc:Ignorable="d"
+        Title="Kinect HD Eye Traker" Height="700" Width="800">
+    <Grid x:Name="mainGrid" Background="LightCyan" Width="800" Height="950">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="400" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="300" />
+            <RowDefinition Height="300" />
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="KINECT HD EYE TRACKER" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" FontWeight="ExtraBlack" RenderTransformOrigin="0.5,3.401"/>
+
+        <Viewbox Grid.Row="2" Grid.Column="0" Width="400" Height="300" Margin="5">
+            
+           <Image Name="camera" />
+          
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="0" Width="400" Height="300" Margin="5">
+            <Canvas Name="canvas" Width="360" Height="290" >
+                <!-- here will be drawn the face point-->
+            </Canvas>
+        </Viewbox>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="130" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120" />
+                <RowDefinition Height="120" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="consoleEyeRight" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontSize="14" TextWrapping="Wrap" Text="EyeRight" VerticalAlignment="Top" Margin="10"/>
+            <TextBlock x:Name="consoleEyeLeft"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontSize="14" TextWrapping="Wrap" Text="EyeLeft" VerticalAlignment="Top" Margin="10"/>
+            <TextBlock x:Name="consoleNoseTip" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" FontSize="14" TextWrapping="Wrap" Text="NoseTip" VerticalAlignment="Top" Margin="10"/>
+            <TextBlock x:Name="consoleEyedistancer" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" FontSize="14" TextWrapping="Wrap" Text="EyeDistance" VerticalAlignment="Top" Margin="10"/>
+            <TextBlock x:Name="consoleHeadJoint" Grid.Row="1" Grid.Column="2"  HorizontalAlignment="Center" FontSize="14" Text="HeadJoint" VerticalAlignment="Top" Margin="10"/>
+            <TextBlock x:Name="consoleNow" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="10" TextWrapping="Wrap" Text="NowDateTime" VerticalAlignment="Top" Margin="10"/>
+            <TextBlock x:Name="consoleNowH" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" FontSize="10" TextWrapping="Wrap" Text="NowDateTimeHead" VerticalAlignment="Top" Margin="10"/>
+
+            <TextBlock x:Name="debugin" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontSize="10" TextWrapping="Wrap" Text="debugin" VerticalAlignment="Top" Margin="10"/>
+            <TextBlock x:Name="debugout" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" FontSize="10" TextWrapping="Wrap" Text="debugout" VerticalAlignment="Top" Margin="10"/>
+        
+        </Grid>
+
+
+        <Viewbox Grid.Row="1" Grid.Column="2" Width="400" Height="300" Margin="5">
+            <Canvas Name="KinectMapXY" Width="360" Height="290">
+                <!-- draw axis -->
+                <Line X1="5" Y1="145" X2="350" Y2="145" Stroke="Yellow" StrokeThickness="3"/>
+                <Line X1="180" Y1="10" X2="180" Y2="250" Stroke="Yellow" StrokeThickness="3"/>
+                <!-- draw Kinect -->
+                <Rectangle Canvas.Top="137" Canvas.Left="140" Width="80" Height="16" Fill="Black" />
+                <Rectangle Canvas.Top="155" Canvas.Left="140" Width="80" Height="4" Fill="Black" />
+                <Ellipse Canvas.Top="140" Canvas.Left="150" Fill="White" Height="10" Width="10"/>
+            </Canvas>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="2" Width="400" Height="300" Margin="5">
+            <Canvas Name="mapXY" Width="360" Height="290">
+                <!-- here will be drawn the eyes point-->
+            </Canvas>
+        </Viewbox>
+
+        <Viewbox Grid.Row="2" Grid.Column="2" Width="400" Height="300" Margin="5">
+            <Canvas Name="KinectMapXZ" Width="360" Height="290">
+                <!-- draw axis -->
+                <Line X1="5" Y1="30" X2="350" Y2="30" Stroke="Yellow" StrokeThickness="3"/>
+                <Line X1="180" Y1="10" X2="180" Y2="250" Stroke="Yellow" StrokeThickness="3"/>
+                <!-- draw Kinect -->
+                <Ellipse Canvas.Top="34" Canvas.Left="150" Fill="White" Height="10" Width="10" Stroke="Black"/>
+                <Rectangle Canvas.Top="10" Canvas.Left="185" Width="3" Height="18" Fill="DarkGray" />
+                <Rectangle Canvas.Top="19" Canvas.Left="170" Width="20" Height="10" Fill="Black" />
+                <Rectangle Canvas.Top="22" Canvas.Left="140" Width="80" Height="18" Fill="Black"/>
+            </Canvas>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="2" Width="400" Height="300" Margin="5">
+            <Canvas Name="mapXZ" Width="360" Height="290">
+                <!-- here will be drawn the eyes point-->
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</Window>
