@@ -17,7 +17,7 @@ Take look at [this](https://channel9.msdn.com/coding4fun/kinect/Programming-Kine
 
 ## Contributors
 
-Nicola Masotti
+Nicola Masotti  
 Simone Pelatti 
 
 ## License
